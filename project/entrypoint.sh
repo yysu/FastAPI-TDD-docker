@@ -7,5 +7,5 @@ while ! nc -z web-db 5432; do
 done
 
 echo "PostgreSQL started"
-
+echo "Execute command : $@"
 exec "$@"
