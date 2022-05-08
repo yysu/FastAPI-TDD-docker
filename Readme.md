@@ -1,6 +1,24 @@
 # FastAPI-TDD-Docker
 ![Continuous Integration and Delivery](https://github.com/yysu/fastapi-tdd-docker/workflows/Continuous%20Integration%20and%20Delivery/badge.svg?branch=main)
 
+## Play around with this service
+```
+Domain=https://fastapi-tdd-docker-jimsu.herokuapp.com
+
+# Make sure the website is alive
+$ curl ${Domain}/ping
+
+# Pick a website which you would like to get summary
+# ex. https://www.nytimes.com/
+$ curl -X POST ${Domain}/summaries/ \
+   -H 'Content-Type: application/json' \
+   -d '{"url":"https://www.nytimes.com/"}' 
+
+# Get the result
+$ curl ${Domain}/summaries/3/
+```
+
+
 ## docker-compose Commands
 ```
 # Start
