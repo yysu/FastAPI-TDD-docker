@@ -38,6 +38,29 @@ $ docker-compose exec web python -m pytest -l
 
 # list the 2 slowest tests
 $ docker-compose exec web python -m pytest --durations=2
+
+# Run the tests with coverage
+$ docker-compose exec web python -m pytest --cov="."
+
+# Run the tests with coverage (html)
+$ docker-compose exec web python -m pytest --cov="." --cov-report html
+
+# Linting with flake8, exclude env folder
+$ docker-compose exec web flake8 --exclude=env
+
+# Format code check with Black, exclude env folder
+$ docker-compose exec web black . --check
+
+# Format with diff in Black, exclude env folder
+$ docker-compose exec web black . --check --exclude=env --diff
+
+# Format code with Black, exclude env folder --dif
+$ docker-compose exec web black .
+
+# Sort all our imports alphabetically
+$ docker-compose exec web isort . --check-only -s env
+$ docker-compose exec web isort . --diff -s env
+$ docker-compose exec web isort . -s env
 ```
 
 ## heroku commands
@@ -56,5 +79,14 @@ $ heroku container:release web --app <app-name>
 
 # Apply the migrations
 $ heroku run aerich upgrade --app <app-name>
+```
 
+## Docker
+```
+
+# Build docker using amd64
+$ docker buildx build --load --platform linux/amd64 -f project/Dockerfile.prod -t registry.heroku.com/<app-name>/web ./project
+
+# push to heroku
+$ docker push registry.heroku.com/<app-name>/web:latest
 ```
