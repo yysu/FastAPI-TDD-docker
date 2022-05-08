@@ -10,12 +10,12 @@ $ curl ${Domain}/ping
 
 # Pick a website which you would like to get summary
 # ex. https://www.nytimes.com/
-$ curl -X POST ${Domain}/summaries/ \
+$ ID=$(curl -s -X POST ${Domain}/summaries/ \
    -H 'Content-Type: application/json' \
-   -d '{"url":"https://www.nytimes.com/"}' 
+   -d '{"url":"https://www.nytimes.com/"}'  | jq '.id' 
 
 # Get the result
-$ curl ${Domain}/summaries/3/
+$ curl -s ${Domain}/summaries/${ID}/ | jq '.summary' 
 ```
 
 
