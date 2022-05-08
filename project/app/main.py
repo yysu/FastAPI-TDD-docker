@@ -14,6 +14,7 @@ def create_application() -> FastAPI:
     application.include_router(
         summaries.router, prefix="/summaries", tags=["summaries"]
     )
+
     return application
 
 
@@ -23,9 +24,7 @@ app = create_application()
 @app.on_event("startup")
 async def startup_event():
     log.info("Starting up...")
-    log.info("DB init start ...")
     init_db(app)
-    log.info("DB init done ...")
 
 
 @app.on_event("shutdown")
