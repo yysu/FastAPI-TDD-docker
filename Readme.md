@@ -1,6 +1,11 @@
 # FastAPI-TDD-Docker
 ![Continuous Integration and Delivery](https://github.com/yysu/fastapi-tdd-docker/workflows/Continuous%20Integration%20and%20Delivery/badge.svg?branch=main)
 
+Our objective is to create a real-time text summarization service used for creating article summaries from a given URL.
+
+For example, we would like to summarize https://news.google.com/
+It would show "COVID-19 news: See the latest coverage of the coronavirus"
+
 ## Play around with this service
 ```
 Domain=https://fastapi-tdd-docker-jimsu.herokuapp.com
@@ -12,7 +17,7 @@ $ curl ${Domain}/ping
 # ex. https://www.nytimes.com/
 $ ID=$(curl -s -X POST ${Domain}/summaries/ \
    -H 'Content-Type: application/json' \
-   -d '{"url":"https://www.nytimes.com/"}'  | jq '.id' 
+   -d '{"url":"https://news.google.com/"}'  | jq '.id')
 
 # Get the result
 $ curl -s ${Domain}/summaries/${ID}/ | jq '.summary' 
