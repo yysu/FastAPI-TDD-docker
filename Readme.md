@@ -6,6 +6,25 @@ Our objective is to create a real-time text summarization service used for creat
 For example, we would like to summarize https://news.google.com/
 It would show "COVID-19 news: See the latest coverage of the coronavirus"
 
+## API spec
+The API itself will follow RESTful design principles, using the basic HTTP verbs: GET, POST, PUT, and DELETE.
+
+| Endpoint | HTTP Method | CRUD Method | Result |
+| ----- | ----- | ----- | ---- |
+| /summaries | GET | READ | get all summaries |
+| /summaries/:id | GET | READ | get a single summary |
+| /summaries | POST | CREATE | add a summary | 
+| /summaries/:id | PUT | UPDATE | update a summary | 
+| /summaries/:id | DELETE | DELETE | delete a summary | 
+
+## tech stack
+- FastAPI
+- Tortoise ORM
+- Postgres DB
+- Pytest
+- GitHub Action
+- Heroku
+
 ## Play around with this service
 ```
 Domain=https://fastapi-tdd-docker-jimsu.herokuapp.com
