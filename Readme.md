@@ -17,11 +17,12 @@ The API itself will follow RESTful design principles, using the basic HTTP verbs
 | /summaries/:id | PUT | UPDATE | update a summary | 
 | /summaries/:id | DELETE | DELETE | delete a summary | 
 
-## tech stack
+## Tech stack
 - FastAPI
 - Tortoise ORM
 - Postgres DB
 - Pytest
+- Docker
 - GitHub Action
 - Heroku
 
